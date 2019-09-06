@@ -1,6 +1,6 @@
 import java.io.*;
 
-enum TokenType{ NUM,SOMA,DIV,SUB,MULT,APar,FPar, EOF}
+enum TokenType{ NUM,SOMA, MULT,APar,FPar, EOF}
 
 class Token{
   char lexema;
@@ -32,37 +32,14 @@ class AnaliseLexica {
 			do{
 				currchar1 =  arquivo.read();
 				currchar = (char) currchar1;
-			} while (currchar == '\n' || currchar == ' ' || currchar =='\t' || currchar == '\r');
+			} while (currchar == '\n' || currchar == ' ' || currchar =='\t' || currchar == '\r')
 			
 			if(currchar1 != eof && currchar1 !=10)
 			{
+								
+	
 				if (currchar >= '0' && currchar <= '9')
-					currchar1 =  arquivo.read();
-					if(currchar1 == ' '){return (new Token (currchar, TokenType.NUM));}
-														
-					while(currchar1 >= '0' && currchar1 <= '9'){
-						currchar = currchar + currchar1					
-					}
-					
-					switch (currchar1){
-						case '(':
-							return (new Token (currchar,TokenType.APar));
-						case ')':
-							return (new Token (currchar,TokenType.FPar));
-						case '+':
-							return (new Token (currchar,TokenType.SOMA));
-						case '/':
-							return (new Token (currchar,TokenType.DIV));
-						case '-':
-							return (new Token (currchar,TokenType.SUB));	
-						case '*':
-							return (new Token (currchar,TokenType.MULT));
-						
-						default: throw (new Exception("Caractere inválido: " + ((int) currchar)));
-					}
-
 					return (new Token (currchar, TokenType.NUM));
-
 				else
 					switch (currchar){
 						case '(':
@@ -71,10 +48,6 @@ class AnaliseLexica {
 							return (new Token (currchar,TokenType.FPar));
 						case '+':
 							return (new Token (currchar,TokenType.SOMA));
-						case '/':
-							return (new Token (currchar,TokenType.DIV));
-						case '-':
-							return (new Token (currchar,TokenType.SUB));	
 						case '*':
 							return (new Token (currchar,TokenType.MULT));
 						
