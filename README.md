@@ -13,7 +13,9 @@ Implementar um analisador léxico para a linguagem MiniJava, usando a ferramenta
 Comandos para compilação e execução (respectivamente):
 
 flex l1.l
+
 gcc lex.yy.c
+
 ./a.out
 
 Link para a sintaxe da MiniJava:  http://www.cambridge.org/resources/052182060X/MCIIJ2e/grammar.htm
