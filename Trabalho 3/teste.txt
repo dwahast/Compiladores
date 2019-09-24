@@ -1,1 +1,5 @@
-void main {}
+void main {
+newVar int A;
+newVar int B;
+Teste = true
+}

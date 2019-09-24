@@ -28,21 +28,15 @@ TOKEN :
 | <NEW: "newVar">
 | <TIPO: "int"|"bool">
 | <VOID: "void">
-| <VOID: "void">
-| <VOID: "void">
-| <VOID: "void">
-| <VOID: "void">
-| <VOID: "void">
 }
 
 TOKEN :
 {
  <NUM: ["1"-"9"](["0"-"9"])+>
-|< ID: ["a"-"z","A"-"Z"] ( ["a"-"z","A"-"Z","0"-"9"])*>
-
+|<ID: ["a"-"z","A"-"Z"] (["a"-"z","A"-"Z","0"-"9"])* ("_"["a"-"z","A"-"Z","0"-"9"])*>
+|<OP: "+" | "-" | "*" | "/" | "&" | "|" | "<" | ">" | "==">
+|<NUMLIT: <NUM>("."<NUM>)? ("E" ("+" | "-") <NUM>)?>
 }
-
-
 
 void Karloff () :
 {}
@@ -57,13 +51,74 @@ void Karloff () :
 void Main ():
 {}
 {
- <VOID><MAIN> <ACHAVES> 
+ <VOID> <MAIN> <ACHAVES> 
  
- // VarDecl()
- // SeqComandos()
+ VarDecl()
+ SeqComandos()
 
  <FCHAVES>
 
+}
+
+
+void VarDecl ():
+{}
+{
+	(<NEW> <TIPO> <ID> ";")*
+}
+
+
+void exp():
+{}
+{
+	("(" exp() <OP> exp() ")")
+	| fator()
+}
+
+
+void listaexp():
+{}
+{
+	exp() listaexpR()
+}
+
+void listaexpR():
+{}
+{
+	("," exp() listaexpR() )?
+}
+
+void fator():
+{}
+{
+	(<ID> fatNR())
+	|<NUMLIT> | "true" | "false" 
+}
+
+void fatNR():
+{}
+{
+	("(" (listaexp())?  ")")?
+}
+
+
+void comando():
+{}
+{
+	(<ID> comandoNR())
+  	|("if" "(" exp() ")" "{" SeqComandos() "}" ";")
+  	|(<WHILE> "(" exp() ")" <DO> <ACHAVES> SeqComandos() <FCHAVES> <PONTOVIR>)
+  	|(<DO> <ACHAVES> SeqComandos() <FCHAVES> <WHILE> "(" exp() ")" <PONTOVIR>)
+  	|(<RETURN> exp() <PONTOVIR>)
+  	|(<PRINT> "(" exp() ")" <PONTOVIR>)
+}
+
+
+
+void SeqComandos ():
+{}
+{
+	(comando())*
 }
 
 

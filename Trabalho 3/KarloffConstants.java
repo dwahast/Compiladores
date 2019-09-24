@@ -15,11 +15,19 @@ public interface KarloffConstants {
   /** RegularExpression Id. */
   int FCHAVES = 7;
   /** RegularExpression Id. */
-  int VOID = 8;
+  int NEW = 8;
   /** RegularExpression Id. */
-  int NUM = 9;
+  int TIPO = 9;
   /** RegularExpression Id. */
-  int ID = 10;
+  int VOID = 10;
+  /** RegularExpression Id. */
+  int NUM = 11;
+  /** RegularExpression Id. */
+  int ID = 12;
+  /** RegularExpression Id. */
+  int OP = 13;
+  /** RegularExpression Id. */
+  int NUMLIT = 14;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -34,9 +42,20 @@ public interface KarloffConstants {
     "\"main\"",
     "\"{\"",
     "\"}\"",
+    "\"newVar\"",
+    "<TIPO>",
     "\"void\"",
     "<NUM>",
     "<ID>",
+    "<OP>",
+    "<NUMLIT>",
+    "\";\"",
+    "\"(\"",
+    "\")\"",
+    "\",\"",
+    "\"true\"",
+    "\"false\"",
+    "\"=\"",
   };
 
 }
