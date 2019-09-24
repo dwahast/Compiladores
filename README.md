@@ -25,5 +25,13 @@ Texto sobre a ferramenta flex: http://sites.google.com/site/compiladoresufpel/fl
 #### Trabalho 3
 Implementar um analisador sintático para a linguagem Karloff usando a ferramenta javacc
 
+Comandos para compilação e execução (respectivamente):
+
+javacc Karloff.jj
+
+javac Karloff.java
+
+java Karloff ProgramaTeste.txt
+
 Link para a sintaxe do Karloff: https://sites.google.com/site/compiladoresufpel/LinguagemKarloff.pdf
 Link para a especificação inicial do Karloff em Javacc: https://sites.google.com/site/compiladoresufpel/Karloff.jj
