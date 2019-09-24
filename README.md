@@ -13,9 +13,17 @@ Implementar um analisador léxico para a linguagem MiniJava, usando a ferramenta
 Comandos para compilação e execução (respectivamente):
 
 flex l1.l
+
 gcc lex.yy.c
+
 ./a.out
 
 Link para a sintaxe da MiniJava:  http://www.cambridge.org/resources/052182060X/MCIIJ2e/grammar.htm
 Link para a especificação Léxica do MiniJava: http://www.cambridge.org/us/features/052182060X/mjreference/node2.html
 Texto sobre a ferramenta flex: http://sites.google.com/site/compiladoresufpel/flex.pdf
+
+#### Trabalho 3
+Implementar um analisador sintático para a linguagem Karloff usando a ferramenta javacc
+
+Link para a sintaxe do Karloff: https://sites.google.com/site/compiladoresufpel/LinguagemKarloff.pdf
+Link para a especificação inicial do Karloff em Javacc: https://sites.google.com/site/compiladoresufpel/Karloff.jj
