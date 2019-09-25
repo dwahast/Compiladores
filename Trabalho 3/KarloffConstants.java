@@ -11,23 +11,47 @@ public interface KarloffConstants {
   /** RegularExpression Id. */
   int MAIN = 5;
   /** RegularExpression Id. */
-  int ACHAVES = 6;
+  int FUNC = 6;
   /** RegularExpression Id. */
-  int FCHAVES = 7;
+  int ACHAVES = 7;
   /** RegularExpression Id. */
-  int NEW = 8;
+  int FCHAVES = 8;
   /** RegularExpression Id. */
-  int TIPO = 9;
+  int APARENT = 9;
   /** RegularExpression Id. */
-  int VOID = 10;
+  int FPARENT = 10;
   /** RegularExpression Id. */
-  int NUM = 11;
+  int NEW = 11;
   /** RegularExpression Id. */
-  int ID = 12;
+  int TIPO = 12;
   /** RegularExpression Id. */
-  int OP = 13;
+  int VOID = 13;
   /** RegularExpression Id. */
-  int NUMLIT = 14;
+  int IF = 14;
+  /** RegularExpression Id. */
+  int THEN = 15;
+  /** RegularExpression Id. */
+  int WHILE = 16;
+  /** RegularExpression Id. */
+  int REPEAT = 17;
+  /** RegularExpression Id. */
+  int UNTIL = 18;
+  /** RegularExpression Id. */
+  int RETURN = 19;
+  /** RegularExpression Id. */
+  int SOUT = 20;
+  /** RegularExpression Id. */
+  int TRUE = 21;
+  /** RegularExpression Id. */
+  int FALSE = 22;
+  /** RegularExpression Id. */
+  int NUM = 23;
+  /** RegularExpression Id. */
+  int ID = 24;
+  /** RegularExpression Id. */
+  int OP = 25;
+  /** RegularExpression Id. */
+  int NUMLIT = 26;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -40,22 +64,30 @@ public interface KarloffConstants {
     "\"\\n\"",
     "\"\\r\"",
     "\"main\"",
+    "\"func\"",
     "\"{\"",
     "\"}\"",
+    "\"(\"",
+    "\")\"",
     "\"newVar\"",
     "<TIPO>",
     "\"void\"",
+    "\"if\"",
+    "\"then\"",
+    "\"while\"",
+    "\"repeat\"",
+    "\"until\"",
+    "\"return\"",
+    "\"System.output\"",
+    "\"true\"",
+    "\"false\"",
     "<NUM>",
     "<ID>",
     "<OP>",
     "<NUMLIT>",
     "\";\"",
-    "\"(\"",
-    "\")\"",
-    "\",\"",
-    "\"true\"",
-    "\"false\"",
     "\"=\"",
+    "\",\"",
   };
 
 }

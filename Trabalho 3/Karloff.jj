@@ -23,11 +23,23 @@ SKIP :
 TOKEN :
 {
   <MAIN: "main">
+| <FUNC: "func">
 | <ACHAVES: "{">
 | <FCHAVES: "}">
+| <APARENT: "(">
+| <FPARENT: ")">
 | <NEW: "newVar">
 | <TIPO: "int"|"bool">
 | <VOID: "void">
+| <IF: "if">
+| <THEN: "then">
+| <WHILE: "while">
+| <REPEAT: "repeat">
+| <UNTIL: "until">
+| <RETURN: "return">
+| <SOUT: "System.output">
+| <TRUE: "true">
+| <FALSE: "false">
 }
 
 TOKEN :
@@ -43,7 +55,7 @@ void Karloff () :
 { 
 
   Main() 
-//Func()?
+  Func()
   <EOF> 
 }
 	
@@ -71,7 +83,7 @@ void VarDecl ():
 void exp():
 {}
 {
-	("(" exp() <OP> exp() ")")
+	(<APARENT> exp() <OP> exp() <FPARENT>)
 	| fator()
 }
 
@@ -79,41 +91,34 @@ void exp():
 void listaexp():
 {}
 {
-	exp() listaexpR()
+	exp() (exp() ";" exp())*   
 }
 
-void listaexpR():
-{}
-{
-	("," exp() listaexpR() )?
-}
 
 void fator():
 {}
 {
-	(<ID> fatNR())
-	|<NUMLIT> | "true" | "false" 
-}
-
-void fatNR():
-{}
-{
-	("(" (listaexp())?  ")")?
+	(<ID> (<APARENT> listaexp() <FPARENT>)?)
+	| <NUMLIT> | <TRUE> | <FALSE> 
 }
 
 
 void comando():
 {}
 {
-	(<ID> comandoNR())
-  	|("if" "(" exp() ")" "{" SeqComandos() "}" ";")
-  	|(<WHILE> "(" exp() ")" <DO> <ACHAVES> SeqComandos() <FCHAVES> <PONTOVIR>)
-  	|(<DO> <ACHAVES> SeqComandos() <FCHAVES> <WHILE> "(" exp() ")" <PONTOVIR>)
-  	|(<RETURN> exp() <PONTOVIR>)
-  	|(<PRINT> "(" exp() ")" <PONTOVIR>)
+	(<ID> comandoR())
+	|(<IF> <APARENT> exp() <FPARENT> <THEN> <ACHAVES> SeqComandos() <FCHAVES> ";")
+	|(<WHILE> <APARENT> exp() <FPARENT> <ACHAVES> SeqComandos() <FCHAVES> ";")
+	|(<REPEAT> <ACHAVES> SeqComandos() <FCHAVES> <UNTIL> <APARENT> exp() <FPARENT> ";")
+	|(<RETURN> exp() ";")
+	|(<SOUT> <APARENT> exp() <FPARENT> ";")
 }
 
-
+void comandoR():
+{}
+{
+  ("=" exp() ";") | (<APARENT> (listaexp())? <FPARENT> ";")
+}
 
 void SeqComandos ():
 {}
@@ -121,7 +126,14 @@ void SeqComandos ():
 	(comando())*
 }
 
+void listarg ():
+{}
+{
+  (<TIPO> <ID> ",")* <TIPO> <ID>
+}
 
-
-
-
+void Func ():
+{}
+{
+  (<FUNC> <TIPO> <ID> <APARENT> (listarg())? <FPARENT> <ACHAVES> VarDecl() SeqComandos() <FCHAVES>)*
+}

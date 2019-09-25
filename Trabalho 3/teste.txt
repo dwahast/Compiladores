@@ -1,5 +1,14 @@
 void main {
-newVar int A;
-newVar int B;
-Teste = true
+	newVar int A;
+	newVar int B;
+	Teste = true;
+	if ( ( true == true ) ) then { 
+		return true ;
+	};
+}
+
+func int somatorio () {
+	newVar int a;
+	newVar int b;
+	return (a + b);
 }
