@@ -1,0 +1,8 @@
+void main {
+	newVar int C;
+	newVar int D;
+	Teste = false;
+	if ( ( true == true ) ) then { 
+		return true ;
+	};
+}

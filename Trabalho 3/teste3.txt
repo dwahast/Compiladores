@@ -1,0 +1,15 @@
+void main {
+	Teste = false;
+	if ( ( Teste == true ) ) then { 
+		return true ;
+	};
+	teste();
+}
+
+func bool teste(){
+	if (a) then {
+		return a ;
+	};
+	return false ;
+	
+}
