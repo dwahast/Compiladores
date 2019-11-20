@@ -89,16 +89,7 @@ public class Karloff implements KarloffConstants {
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
     case ID:
       jj_consume_token(ID);
-      switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-      case APARENT:
-        jj_consume_token(APARENT);
-        listaexp();
-        jj_consume_token(FPARENT);
-        break;
-      default:
-        jj_la1[3] = jj_gen;
-        ;
-      }
+      fator1();
       break;
     case NUMLIT:
       jj_consume_token(NUMLIT);
@@ -110,9 +101,22 @@ public class Karloff implements KarloffConstants {
       jj_consume_token(FALSE);
       break;
     default:
-      jj_la1[4] = jj_gen;
+      jj_la1[3] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
+    }
+  }
+
+  static final public void fator1() throws ParseException {
+    switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+    case APARENT:
+      jj_consume_token(APARENT);
+      listaexp();
+      jj_consume_token(FPARENT);
+      break;
+    default:
+      jj_la1[4] = jj_gen;
+      ;
     }
   }
 
@@ -225,26 +229,27 @@ public class Karloff implements KarloffConstants {
   }
 
   static final public void listarg() throws ParseException {
-    label_4:
-    while (true) {
-      switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-      case TIPO:
-        ;
-        break;
-      default:
-        jj_la1[9] = jj_gen;
-        break label_4;
-      }
-      jj_consume_token(TIPO);
-      jj_consume_token(ID);
-      jj_consume_token(29);
-    }
     jj_consume_token(TIPO);
     jj_consume_token(ID);
+    listarg1();
+  }
+
+  static final public void listarg1() throws ParseException {
+    switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+    case 29:
+      jj_consume_token(29);
+      jj_consume_token(TIPO);
+      jj_consume_token(ID);
+      listarg1();
+      break;
+    default:
+      jj_la1[9] = jj_gen;
+      ;
+    }
   }
 
   static final public void Func() throws ParseException {
-    label_5:
+    label_4:
     while (true) {
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
       case FUNC:
@@ -252,7 +257,7 @@ public class Karloff implements KarloffConstants {
         break;
       default:
         jj_la1[10] = jj_gen;
-        break label_5;
+        break label_4;
       }
       jj_consume_token(FUNC);
       jj_consume_token(TIPO);
@@ -290,7 +295,7 @@ public class Karloff implements KarloffConstants {
       jj_la1_init_0();
    }
    private static void jj_la1_init_0() {
-      jj_la1_0 = new int[] {0x800,0x5600200,0x5600200,0x200,0x5600000,0x11b4000,0x5600200,0x10000200,0x11b4000,0x1000,0x40,0x1000,};
+      jj_la1_0 = new int[] {0x800,0x5600200,0x5600200,0x5600000,0x200,0x11b4000,0x5600200,0x10000200,0x11b4000,0x20000000,0x40,0x1000,};
    }
 
   /** Constructor with InputStream. */

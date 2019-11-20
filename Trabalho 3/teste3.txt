@@ -8,8 +8,7 @@ void main {
 
 func bool teste(){
 	if (a) then {
-		return a ;
+		return a;
 	};
 	return false ;
-	
 }

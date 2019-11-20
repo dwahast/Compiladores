@@ -98,10 +98,15 @@ void listaexp():
 void fator():
 {}
 {
-	(<ID> (<APARENT> listaexp() <FPARENT>)?)
-	| <NUMLIT> | <TRUE> | <FALSE> 
+	<ID> fator1()
+	|<NUMLIT> | <TRUE> | <FALSE> 
 }
 
+void fator1():
+{}
+{
+	(<APARENT> listaexp() <FPARENT>)?
+}
 
 void comando():
 {}
@@ -129,7 +134,14 @@ void SeqComandos ():
 void listarg ():
 {}
 {
-  (<TIPO> <ID> ",")* <TIPO> <ID>
+  <TIPO> <ID> listarg1()
+}
+
+
+void listarg1 ():
+{}
+{
+  ("," <TIPO> <ID> listarg1())?
 }
 
 void Func ():
