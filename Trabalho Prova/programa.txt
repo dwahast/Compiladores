@@ -1,0 +1,15 @@
+main(){
+	var a:int;
+	var b:int;
+	var c:int;
+	var d:int;
+	var e:int;
+	a := (a+a);
+	b := (b-a);
+	b := (b*a);
+	c := ((a+a)-(b*((b/a)/(c-a))));
+	d := (c+b);
+	e := (d+a);
+	print b;
+	print c;
+}
