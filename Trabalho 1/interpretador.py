@@ -20,10 +20,12 @@ for line in file:
 			resultado = Pilha.pop() + Pilha.pop()
 			Pilha.append(resultado)
 		elif comand == 'SUB' :
-			resultado = Pilha.pop() - Pilha.pop()
+			resultado = (-Pilha.pop()) + Pilha.pop()
 			Pilha.append(resultado)
 		elif comand == 'DIV' :
-			resultado = Pilha.pop() / Pilha.pop()
+			den = Pilha.pop()
+			num = Pilha.pop()
+			resultado = num / den
 			Pilha.append(resultado)
 		elif comand == 'MULT' :
 			resultado = Pilha.pop() * Pilha.pop()
